@@ -22,7 +22,7 @@
                         </div>
                     {% endfor %}
                     <div class="cart-footer">
-                        <a class="btn-link" href="#" style="margin-right: 5px;">{{ cart.get_total_price }} ₽</a> <a class="btn-link danger" href="{% url 'cart:cart_clear' %}">Очистить</a>
+                        <a class="btn-link" href="{% url 'order:order_create' %}" style="margin-right: 5px;">{{ cart.get_total_price }} ₽</a> <a class="btn-link danger" href="{% url 'cart:cart_clear' %}">Очистить</a>
                     </div>
                 </div>
                 </div>

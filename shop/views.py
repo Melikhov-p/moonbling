@@ -25,13 +25,13 @@ def product_list(request, category_slug=None):
 
 def product_detail(request, slug, product_id):
     product = get_object_or_404(Product, id=product_id, slug=slug, available=True)
-    if 'viewed_products' in request.session:
-        request.session['viewed_products'].append(product.slug)
-        request.session.modified = True
-    else:
-        request.session['viewed_products'] = []
-        request.session['viewed_products'].append(product.slug)
-        request.session.modified = True
+    # if 'viewed_products' in request.session:
+    #     request.session['viewed_products'].append(product.slug)
+    #     request.session.modified = True
+    # else:
+    #     request.session['viewed_products'] = []
+    #     request.session['viewed_products'].append(product.slug)
+    #     request.session.modified = True
     return render(request, 'product_detail.html', {'product': product})
 
 

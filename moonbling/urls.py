@@ -21,7 +21,8 @@ from moonbling import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('shop.urls', 'shop'), namespace='shop')),
-    path('cart/', include(('cart.urls', 'cart'), namespace='cart'))
+    path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
+    path('order/', include(('orders.urls', 'order'), namespace='order'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
