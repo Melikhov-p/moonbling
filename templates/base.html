@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MOONBLING | {% block title %}{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static "css/shop_list.css" %}" rel="stylesheet">
+    <link href="{% static "css/cart.css" %}" rel="stylesheet">
+</head>
+<body>
+{% include '_nav.html' %}
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

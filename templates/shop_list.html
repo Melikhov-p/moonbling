@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}
+        {{ category }}
+    {% else %}
+        Магазин
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="shop-container">
+            <div class="shop-sidebar">
+                <div class="sidebar-group">
+                    <a href="{% url 'shop:main' %}" class="link-without-dec">
+                        <div class="sidebar-link"><span>Все товары</span></div>
+                    </a>
+                    <a href="{% url 'shop:product_list_by_category' 'bukety' %}" class="link-without-dec">
+                        <div class="sidebar-link"><span>Букеты</span></div>
+                    </a>
+                    <a href="{% url 'shop:product_list_by_category' 'cvety' %}" class="link-without-dec">
+                        <div class="sidebar-link"><span>Цветы</span></div>
+                    </a>
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'shop:admin_logout'%}" class="link-without-dec">
+                        <div class="sidebar-link" style="background-color: #dc3545;"><span>Выйти из админ панели</span></div>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="shop-product-list">
+                {% for product in products %}
+                    <div class="product-card">
+                        <div class="product-card-head">
+                            <img alt="cover" src="{{ product.image.url }}"/>
+                        </div>
+                        <div class="product-card-body">
+                            <h4>{{ product.name.upper }}</h4>
+                            <p>{{ product.price }} ₽ / шт. <span>({{ product.amount }})</span></p>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="{% url 'shop:product_detail' product.slug product.id %}" class="btn-link">Подробнее</a>
+                            <form method="post" action="{% url 'cart:cart_add' product.id%}">
+                                {% csrf_token %}
+                                <button type="submit">Добавить</button>
+                            </form>
+                        </div>
+                        {% if request.user.is_superuser %}
+                            <div class="admin-btns">
+                                <a href="#" class="btn-link admin-btn">Изменить</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

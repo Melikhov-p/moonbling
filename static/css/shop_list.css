@@ -1,0 +1,112 @@
+.shop-container{
+    display: flex;
+    flex-direction: row;
+}
+.sidebar-group{
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+a.link-without-dec{
+    text-decoration: none;
+}
+.sidebar-link{
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    color: #141414;
+}
+.sidebar-link:hover{
+    background-color: #141414;
+    color: #fff;
+}
+.sidebar-head{
+    padding: 5px;
+    font-size: 15px;
+}
+.shop-sidebar{
+    width: 15%;
+    height: 150px;
+}
+.shop-product-list{
+    width: 80%;
+    margin-left: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.product-card{
+    width: 12rem;
+    padding: 8px;
+    margin-bottom: 1rem;
+    background-color: white;
+    margin-right: 1rem;
+}
+.product-card-head > img{
+    width: 12rem;
+    height: 150px;
+}
+.product-card-body{
+    text-align: center;
+}
+.product-card-body > h4{
+    margin-bottom: 0;
+}
+.product-card-desc{
+    overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+.product-card-footer{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.product-card-footer > form{
+    display: flex;
+}
+.product-detail-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.product-detail-card{
+    margin-left: 30px;
+    width: 100%;
+    border: 1px solid #fff;
+    background-color: white;
+    padding: 10px;
+}
+.product-detail-card-body{
+    display: flex;
+    flex-direction: row;
+}
+.detail-product-image > img{
+    width: 300px;
+    margin-right: 10px;
+}
+.detail-product-description{
+    width: 100%;
+}
+.detail-product-description > textarea{
+    width: 95%;
+    height: 115px;
+}
+.product-detail-card-footer{
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}

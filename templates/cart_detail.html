@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+    <div class="cart-content">
+        <div class="cart-container">
+            <div class="shop-sidebar">
+                <div class="sidebar-group">
+                    <a href="{% url 'shop:main' %}" class="link-without-dec">
+                        <div class="sidebar-link"><span>Назад</span></div>
+                    </a>
+                </div>
+            </div>
+            {% if cart|length != 0 %}
+                <div class="cart-card">
+                    {% for product in cart %}
+                        <div class="product-cart-card">
+                            <img alt="cover" src="{{ product.product.image.url }}"/>
+                            <div class="product-cart-detail">
+                                {{ product.product.name }} - {{ product.amount }} шт. | {{ product.total_price }} ₽
+                            </div>
+                            <a class="btn-link" href="{% url 'cart:cart_remove' product.product.id %}">Убрать</a>
+                        </div>
+                    {% endfor %}
+                    <div class="cart-footer">
+                        <a class="btn-link" href="#" style="margin-right: 5px;">{{ cart.get_total_price }} ₽</a> <a class="btn-link danger" href="{% url 'cart:cart_clear' %}">Очистить</a>
+                    </div>
+                </div>
+                </div>
+            {% else %}
+                <div class="cart-card" style="align-items: center; justify-content:center;">Ваша корзина пуста.</div>
+            {% endif %}
+    </div>
+{% endblock %}

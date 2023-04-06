@@ -1,0 +1,114 @@
+html{
+    font-family: Tahoma, cursive;
+}
+body{
+    margin: 0;
+    background-color: #f5ede0;
+}
+button{
+    font-family: Tahoma, cursive;
+    font-size: 16px;
+    background-color: #fff;
+    color: #141414;
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid #141414;
+}
+button:hover{
+    background-color: #141414;
+    color: #fff;
+    border: 1px solid #141414;
+    cursor: pointer;
+}
+.content{
+    display: block;
+    margin-left: 10rem;
+    margin-right: 14rem;
+    margin-top: 10px;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f9f6ef;
+    border-bottom: 1px solid #e0aa3e;
+    box-shadow: 0 0 5px #e0aa3e;
+    padding: 10px 50px 10px;
+}
+.navbar-left{
+    width: 7.5rem;
+    display: flex;
+    justify-content: center;
+}
+.navbar-left > a{
+    margin-left: 1rem;
+}
+.navbar-social > a > img{
+    width:20px;
+    padding-right: 4px;
+}
+.navbar-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+.navbar-logo{
+    font-size: 50px;
+    font-family: sans-serif;
+    padding-bottom: 5px;
+}
+.navbar-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 35%;
+}
+.navbar-link > a{
+    text-decoration: none;
+    color: #11110f;
+}
+.navbar-link > a:hover{
+    color: #e0aa3e;
+    border-bottom: 1px solid #ffe9c9;
+    padding-bottom: 10px;
+}
+.navbar-right{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    margin-left: -3em;
+}
+.btn-link{
+    background-color: #fff;
+    color: #141414;
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid #141414;
+}
+.btn-link:hover{
+    background-color: #141414;
+    color: #fff;
+    border: 1px solid #141414;
+}
+.danger{
+    background-color: #dc3545;
+    color: #fff;
+}
+.primary{
+    background-color: #007bff;
+    color: #fff;
+}
+.admin-btns{
+    display: flex;
+    justify-content: center;
+}
+.admin-btn{
+    background-color: #141414;
+    color: #fff;
+}
+.admin-btn:hover{
+    background-color: #fff;
+    color: #141414;
+}

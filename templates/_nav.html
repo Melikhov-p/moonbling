@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="navbar">
+    <div class="navbar-left">
+        <div class="navbar-social"><a href="#"><img alt="instagram" src="/media/default/instagram.png"/></a></div>
+        <div class="navbar-social"><a href="#"><img alt="telegram" src="/media/default/telegram.png"/></a></div>
+        <div class="navbar-social"><a href="#"><img alt="vkontakte"  src="/media/default/vkontakte.png"/></a></div>
+    </div>
+    <div class="navbar-center">
+        <div class="navbar-logo">MOONBLING</div>
+        <div class="navbar-links">
+            <div class="navbar-link"><a href="#">Контакты</a></div>
+            <div class="navbar-link"><a href="{% url 'shop:main' %}">Главная</a></div>
+            <div class="navbar-link"><a href="#">О нас</a></div>
+        </div>
+    </div>
+    <div class="navbar-right">
+       <a href="{% url 'cart:cart_detail' %}" class="btn-link">Корзина{% if cart|length > 0 %} | {{ cart|length }} {% endif %}</a>
+    </div>
+</div>

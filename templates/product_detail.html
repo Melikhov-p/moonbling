@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ product.name }} {% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="product-detail-container">
+            <div class="shop-sidebar">
+                <div class="sidebar-group">
+                    <a href="{% url 'shop:main' %}" class="link-without-dec">
+                        <div class="sidebar-link"><span>Назад</span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="product-detail-card">
+                {% if request.user.is_superuser %}
+                    <form method="POST" action="{% url 'shop:product_update' product.id %}">
+                        {% csrf_token %}
+                        <div class="product-detail-card-body">
+                            <div class="detail-product-image">
+                                <img alt="product-image" src="{{ product.image.url }}"/>
+                            </div>
+                            <div class="detail-product-description">
+                                <h4 style="margin-top: 0;">{{ product.name }}</h4>
+                                <hr>
+                                <label for="product_description">Описание:
+                                </label>
+                                    <textarea name="product_description">{{ product.description }}</textarea>
+                                <p><b>Осталось: <input value="{{ product.amount }}" style="width: 2rem;" name="product_amount"/> шт.</b></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="product-detail-card-footer">
+                            <button type="submit">Изменить</button>
+                        </div>
+                    </form>
+                {% else %}
+                    <div class="product-detail-card-body">
+                        <div class="detail-product-image">
+                            <img alt="product-image" src="{{ product.image.url }}"/>
+                        </div>
+                        <div class="detail-product-description">
+                            <h4 style="margin-top: 0;">{{ product.name }}</h4>
+                            <hr>
+                            <p>{{ product.description }}</p>
+                            <p><b>Осталось: {{ product.amount }} шт.</b></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="product-detail-card-footer">
+                        <form method="post" action="{% url 'cart:cart_add' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Добавить в корзину</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
