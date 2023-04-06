@@ -7,9 +7,9 @@ from .models import Product, Category
 from cart.cart import Cart
 
 def product_list(request, category_slug=None):
+    print(request.GET.get('referal', None))
     cart = Cart(request)
     category = None
-    print(request.session['viewed_products'])
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     if category_slug:
@@ -47,3 +47,9 @@ def product_update(request, product_id):
 def admin_logout(request):
     logout(request)
     return redirect('shop:main')
+
+def about(request):
+    return render(request, 'about.html')
+
+def contacts(request):
+    return render(request, 'contacts.html')
