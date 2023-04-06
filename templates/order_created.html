@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Заказ оформлен{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="container" style="display: flex; justify-content: center;flex-direction:column;">
+            <div class="cart-card" style="align-items: center; justify-content:center;">Заказ оформлен.
+            <a class="btn-link" href="{% url 'shop:main' %}">На главную</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

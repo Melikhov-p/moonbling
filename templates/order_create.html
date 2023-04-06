@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Заказ{% endblock %}
+{% block content %}
+    <div class="cart-content">
+        <div class="order-container">
+            <div class="order">
+                <form action="{% url 'order:order_create' %}" method="post" class="order-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Оформить заказ</button>
+                </form>
+            </div>
+            <div class="cart">
+                {% for product in cart %}
+                    <div class="product-cart-card">
+                        <img alt="cover" src="{{ product.product.image.url }}"/>
+                        <div class="product-cart-detail">
+                            {{ product.product.name }} - {{ product.amount }} шт. | {{ product.total_price }} ₽
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr>
+                <div style="text-align: center;">{{ cart.get_total_price }} ₽</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
